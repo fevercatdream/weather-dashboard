@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/css/reset.css" />
+    <link rel="stylesheet" href="./assets/css/style.css" />
+    <title>Weather Dashboard</title>
+</head>
+<body>
+    <header id="header">
+        <h1>Weather Dashboard</h1>
+    </header>
+    <section id="search-section">
+        <h2>Search for a City:</h2>
+        <form id="search-form">
+            <input id="search-input" type="text" placeholder="Seattle" aria-label="city search" />
+            <button id="search-btn">Search</button>
+        </form>
+        <ol id="search-list">
+            <li>Atlanta</li>
+            <li>Denver</li>
+            <li>Seattle</li>
+            <li>San Francisco</li>
+            <li>Orlando</li>
+            <li>New York</li>
+            <li>Chicago</li>
+            <li>Austin</li>
+        </ol>
+    </section>
+    <br />
+    <section id="forcast-section">
+        <ol id="forecast-list">
+            <li id="current-day" class="card hero">
+                <br /><h2 id="response-city"></h2>
+                <p id="response-date"></p>
+                <figure id="icon-n-desc">
+                    <img id="response-weather-icon" alt="weather icon"></img>
+                    <figcaption id="response-weather-description"></figcaption>
+                </figure>
+                <p id="response-temp"></p>
+                <p id="response-wind"></p>
+                <p id="response-humidity"></p>
+            </li>
+            <li>
+                <h2 id="forecast-header">5-Day Forecast:</h2>
+            </li>
+            <li id="forecast-day-1" class="card">
+                <p id="response-forecast-date-1"></p>
+                <figure id="icon-n-desc-forecast-1">
+                    <img id="response-weather-icon-forecast-1" alt="weather icon"></img>
+                    <figcaption id="response-weather-desc-forecast-1"></figcaption>
+                </figure>
+                <p id="response-temp-forecast-1"></p>
+                <p id="response-wind-forecast-1"></p>
+                <p id="response-humidity-forecast-1"></p>
+            </li>
+            <li id="forecast-day-2" class="card">
+                <p id="response-forecast-date-2"></p>
+                <figure id="icon-n-desc-forecast-2">
+                    <img id="response-weather-icon-forecast-2" alt="weather icon"></img>
+                    <figcaption id="response-weather-desc-forecast-2"></figcaption>
+                </figure>
+                <p id="response-temp-forecast-2"></p>
+                <p id="response-wind-forecast-2"></p>
+                <p id="response-humidity-forecast-2"></p>
+            </li>
+            <li id="forecast-day-3" class="card">
+                <p id="response-forecast-date-3"></p>
+                <figure id="icon-n-desc-forecast-3">
+                    <img id="response-weather-icon-forecast-3" alt="weather icon"></img>
+                    <figcaption id="response-weather-desc-forecast-3"></figcaption>
+                </figure>
+                <p id="response-temp-forecast-3"></p>
+                <p id="response-wind-forecast-3"></p>
+                <p id="response-humidity-forecast-3"></p>
+            </li>
+            <li id="forecast-day-4" class="card">
+                <p id="response-forecast-date-4"></p>
+                <figure id="icon-n-desc-forecast-4">
+                    <img id="response-weather-icon-forecast-4" alt="weather icon"></img>
+                    <figcaption id="response-weather-desc-forecast-4"></figcaption>
+                </figure>
+                <p id="response-temp-forecast-4"></p>
+                <p id="response-wind-forecast-4"></p>
+                <p id="response-humidity-forecast-4"></p>
+            </li>
+            <li id="forecast-day-5" class="card">
+                <p id="response-forecast-date-5"></p>
+                <figure id="icon-n-desc-forecast-5">
+                    <img id="response-weather-icon-forecast-5" alt="weather icon"></img>
+                    <figcaption id="response-weather-desc-forecast-5"></figcaption>
+                </figure>
+                <p id="response-temp-forecast-5"></p>
+                <p id="response-wind-forecast-5"></p>
+                <p id="response-humidity-forecast-5"></p>
+            </li>
+        </ol>
+    </section>
+    <footer>
+
+    </footer>
+
+    <script src="./assets/js/script.js"></script>
+</body>
+</html>
