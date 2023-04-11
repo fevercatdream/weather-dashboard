@@ -3,6 +3,8 @@ var apiKey = "476f09e92adbe33631b7bae5be7a38cc";
 var searchInput = document.querySelector("#search-input");
 var searchBtn = document.querySelector("#search-btn");
 
+var forecastSection = document.querySelector("#forecast-section");
+
 var responseCity = document.querySelector("#response-city");
 
 // Current Day
@@ -53,9 +55,17 @@ var responseTempForecast5 = document.querySelector("#response-temp-forecast-5");
 var responseWindForecast5 = document.querySelector("#response-wind-forecast-5");
 var responseHumidityForecast5 = document.querySelector("#response-humidity-forecast-5");
 
+function hideWeather(){
+    forecastSection.classList.add("hidden");
+}
+
+hideWeather();
+
 searchBtn.addEventListener("click", function(event){
     var city = searchInput.value.toLowerCase().trim();
     event.preventDefault();
+
+    forecastSection.classList.remove("hidden");
 
     // api.openweathermap.org/data/2.5/weather?q={city name}&appid={API key}
     var weatherUrl = `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=imperial`;

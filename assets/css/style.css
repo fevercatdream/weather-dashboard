@@ -31,21 +31,16 @@ h2 {
     font-size: 1.5em;
 }
 
+.hidden {
+    display: none !important;
+}
+
 .card {
     border: 1px solid var(--color-black);
     padding: 10px;
     background: var(--color-oxford-blue);
     color: var(--color-platinum);
     line-height: 2;
-}
-
-.card.hero {
-    flex-grow: 1;
-    width: 90%;
-    justify-content: center;
-    align-items: center;
-    background: var(--color-columbia-blue);
-    color: var(--color-paynes-gray);
 }
 
 #header {
@@ -80,12 +75,27 @@ h2 {
     margin-top: 10px;
 }
 
+#current-day {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    justify-content: flex-start;
+    align-items: flex-start;
+    background: var(--color-columbia-blue);
+    color: var(--color-paynes-gray); 
+    margin: 10px 20px;
+}
+
+#forecast-header {
+    margin: 20px;
+}
+
 #forecast-list {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-around;
-    gap: 12px;
+    gap: 5px;
     margin: 10px;
 }
 
