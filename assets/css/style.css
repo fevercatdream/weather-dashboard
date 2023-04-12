@@ -35,7 +35,17 @@ h2 {
     display: none !important;
 }
 
+.list-btn {
+    letter-spacing: 1px;
+    background: var(--color-non-photo-blue);
+    color: var(--color-outer-space);
+    text-shadow: var(--text-shadow-black-sunset);
+    padding: 5px 20px;
+    border-radius: 5px;
+}
+
 .card {
+    flex: 1 1 335px;
     border: 1px solid var(--color-black);
     padding: 10px;
     background: var(--color-oxford-blue);
@@ -56,10 +66,14 @@ h2 {
     margin: 10px;
 }
 
+#search-section h2 {
+    margin-bottom: 10px;
+}
+
 #search-form {
     display: flex;
     flex-wrap: wrap;
-    gap: 12px;
+    gap: 10px;
 }
 
 #search-btn {
@@ -72,7 +86,10 @@ h2 {
 }
 
 #search-list {
+    display: flex;
+    flex-wrap: wrap;
     margin-top: 10px;
+    gap: 20px;
 }
 
 #current-day {
@@ -93,13 +110,18 @@ h2 {
 #forecast-list {
     display: flex;
     flex-direction: row;
-    flex-wrap: wrap;
     justify-content: space-around;
-    gap: 5px;
-    margin: 10px;
+    gap: 20px;
+    margin: 20px;
 }
 
 #response-city {
     text-shadow: var(--text-shadow-black-sunset);
     letter-spacing: 1px;
+}
+
+@media screen and (max-width: 768px){
+    #forecast-list {
+        flex-direction: column;
+    }  
 }

@@ -2,6 +2,7 @@ var apiKey = "476f09e92adbe33631b7bae5be7a38cc";
 
 var searchInput = document.querySelector("#search-input");
 var searchBtn = document.querySelector("#search-btn");
+var searchList = document.querySelector("#search-list");
 
 var forecastSection = document.querySelector("#forecast-section");
 
@@ -55,23 +56,47 @@ var responseTempForecast5 = document.querySelector("#response-temp-forecast-5");
 var responseWindForecast5 = document.querySelector("#response-wind-forecast-5");
 var responseHumidityForecast5 = document.querySelector("#response-humidity-forecast-5");
 
+var historyArr;
+
+// localStorage
+var savedHistoryStr = localStorage.getItem("saved-history");
+if(savedHistoryStr === null){
+    historyArr = [];
+}else{
+    historyArr = JSON.parse(savedHistoryStr);
+}
+
 function hideWeather(){
     forecastSection.classList.add("hidden");
 }
 
 hideWeather();
+renderHistoryToBtn(historyArr);
 
-searchBtn.addEventListener("click", function(event){
-    var city = searchInput.value.toLowerCase().trim();
-    event.preventDefault();
+function renderHistoryToBtn(history){
+    searchList.innerHTML = "";
 
-    forecastSection.classList.remove("hidden");
+    for (let i = 0; i < history.length; i++) {
+        var listBtn = document.createElement("button");
+        listBtn.classList.add("list-btn");
+        listBtn.textContent = history[i];
+        var listItem = document.createElement("li");
+        listItem.append(listBtn);
+        searchList.append(listItem);
+        listBtn.addEventListener("click", function(){
+            fetchWeather(history[i]);
+            forecastSection.classList.remove("hidden");
+        });
+    }
+}
 
-    // api.openweathermap.org/data/2.5/weather?q={city name}&appid={API key}
-    var weatherUrl = `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=imperial`;
+function fetchWeather(cityInput){
     
+    // api.openweathermap.org/data/2.5/weather?q={city name}&appid={API key}
+    var weatherUrl = `http://api.openweathermap.org/data/2.5/weather?q=${cityInput}&appid=${apiKey}&units=imperial`;
+
     // api.openweathermap.org/data/2.5/forecast?q={city name}&appid={API key}
-    var forecastUrl = `http://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}&units=imperial`;
+    var forecastUrl = `http://api.openweathermap.org/data/2.5/forecast?q=${cityInput}&appid=${apiKey}&units=imperial`;
 
     fetch(weatherUrl)
         .then(function(response){
@@ -223,4 +248,22 @@ searchBtn.addEventListener("click", function(event){
             })
         }
     })
+}
+
+searchBtn.addEventListener("click", function(event){
+    var city = searchInput.value.toLowerCase().trim();
+    event.preventDefault();
+    if(city === ""){
+        return;
+    }
+    if(!historyArr.includes(city)){
+        historyArr.push(city);
+        renderHistoryToBtn(historyArr);
+        // localStorage
+        localStorage.setItem("saved-history", JSON.stringify(historyArr));
+    }
+    
+    fetchWeather(city);
+    forecastSection.classList.remove("hidden");
+
 })
