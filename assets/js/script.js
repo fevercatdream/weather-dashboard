@@ -93,10 +93,10 @@ function renderHistoryToBtn(history){
 function fetchWeather(cityInput){
     
     // api.openweathermap.org/data/2.5/weather?q={city name}&appid={API key}
-    var weatherUrl = `http://api.openweathermap.org/data/2.5/weather?q=${cityInput}&appid=${apiKey}&units=imperial`;
+    var weatherUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityInput}&appid=${apiKey}&units=imperial`;
 
     // api.openweathermap.org/data/2.5/forecast?q={city name}&appid={API key}
-    var forecastUrl = `http://api.openweathermap.org/data/2.5/forecast?q=${cityInput}&appid=${apiKey}&units=imperial`;
+    var forecastUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${cityInput}&appid=${apiKey}&units=imperial`;
 
     fetch(weatherUrl)
         .then(function(response){
